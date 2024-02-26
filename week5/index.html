@@ -1,0 +1,90 @@
+<html> 
+    <head><title>Registration</title>
+    <style type="text/css">
+    
+    </style>
+    </head>
+<body> 
+<center> 
+
+<legend>Registration</legend> 
+<form> 
+<pre> 
+<table>
+<tr>
+
+<td>First Name(Minimum 6 characters)<font color="red">* </font> </td><td><input type='text' placeholder="enter first name" name="fuser" id='firstname' /><br /><br /></td>
+</tr><tr>
+<td>
+Last Name<font color="red">* </font></td><td><input type='text' placeholder="enter lastname" name="luser" id='lastname' /><br /><br  /> </td>
+</tr><tr>
+<td>
+EmailAddress<font color="red">* </font>
+<font color="red">(one e-mail id only):</font><font  color="redblue">e.g. smith@hotmail.com</font><br /><br/> 
+</td><td><input type='text' placeholder="enter your email"  name="email" id='email' /><br /> </td>
+</tr>
+<tr>
+<td>
+Password(minimum 6 characters)<font color="red">* </font></td><td> <input type='password' placeholder="enter your password" name="pwd" id='pass'><br /><br/></td>
+</tr><tr>
+<td>
+Address<font color="red">* </font></td><td> <input type="textarea" placeholder="enter your address" rows="2"  name="addr" cols="20" id='addr' /></textarea> <br /> <br/> </td>
+</tr><tr>
+<td>
+Mobile No<font color="red">* </font></td><td><input type='text' placeholder="enter your mobile number" name="ph" id='mobileno' /><br /></td>
+</tr><tr>
+<td>
+<input type='Submit' value='submit' onclick="fun()" /></td></tr></table> <script type="text/JavaScript"> 
+ 
+function fun() 
+{ 
+var userv=document.forms[0].fuser.value; 
+var lserv=document.forms[0].luser.value; 
+var address=document.forms[0].addr.value; 
+var pwdv=document.forms[0].pwd.value; 
+var emailv=document.forms[0].email.value; 
+var phv=document.forms[0].ph.value; 
+var fname=new RegExp("^[a-zA-Z]{6,}$"); 
+var pwde=new RegExp("^[a-zA-Z0-9!@#$%^&*]{6,}$"); 
+var emailreg=new RegExp("^[a-zA-Z][a-zA-Z0-9_.]*@[a-zA-Z][a-zA-Z0-9_.]*.[a-zA Z][a-zA-Z0-9_.]{2}.[a-zA-Z][a-zA-Z0-9_.]{2}$|^[a-zA-Z][a-zA-Z0-9_.]*@[a-zA-Z][a-zA Z0-9_.]*.[a-zA-Z][a-zA-Z0-9_.]{3}$");
+var phreg=new RegExp("^[0-9]{10}$"); 
+var ruser=fname.exec(userv); 
+var pwdreg=pwde.exec(pwdv); 
+var remail=emailreg.exec(emailv); 
+var rph=phreg.exec(phv); 
+if((ruser)&& (remail) && (rph) && (pwdreg) && (pwdv.length >= 6)&&  (userv.length>=6)&& (lserv.length>0)&& (phv.length==10)) 
+{ 
+window.alert("All values are valid"); 
+return true; 
+} 
+else 
+{ 
+if((userv.length < 6)) 
+{ alert("First name  invalid");
+document.forms[0].fuser.focus();
+} 
+ if((lserv.length <=0)) 
+ { alert("Last name  invalid");
+ document.forms[0].luser.focus();
+} 
+ if((address.length <=0)) 
+ { alert("Address  invalid");
+ document.forms[0].addr.focus();} 
+if(!remail) 
+{ alert("Email invalid");
+document.forms[0].email.focus();
+} 
+if(!rph) 
+{ alert("phone number invalid");
+document.forms[0].ph.focus();
+} 
+if(pwdv.length < 6) 
+{ 
+    alert("password  invalid");
+    document.forms[0].pwd.focus();
+} 
+return false; 
+} 
+}
+</script> </form>  </center>
+</body>  </html>
